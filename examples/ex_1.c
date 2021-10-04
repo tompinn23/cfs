@@ -33,7 +33,7 @@ long int stdio_seek(cfs_fs_handle* handle, cfs_file_handle* file, long int offse
     return fseek(fp, offset, stdio_whence);
 }
 
-long int stdio_write(cfs_fs_handle* handle, void* buffer, long int sz) {
+long int stdio_write(cfs_fs_handle* handle, cfs_file_handle* file, void* buffer, long int sz) {
     return 0;
 }
 static cfs_fs_impl stdio_impl = {

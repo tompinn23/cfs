@@ -3,3 +3,4 @@ compile_commands.json
 examples/*
 !examples/*.c
 .vscode/
+.cache/

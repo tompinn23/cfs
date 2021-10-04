@@ -39,10 +39,10 @@ enum {
     for e.g. stdio / tar / zlib etc.
 */
 typedef struct cfs_fs_impl {
-    cfs_fs_impl_open* open_fn;
-    cfs_fs_impl_seek* seek_fn;
-    cfs_fs_impl_read* read_fn;
-    cfs_fs_impl_write* write_fn;
+    cfs_fs_impl_open open_fn;
+    cfs_fs_impl_seek seek_fn;
+    cfs_fs_impl_read read_fn;
+    cfs_fs_impl_write write_fn;
 } cfs_fs_impl;
 
 typedef struct cfs_fs_handle {

@@ -1,0 +1,105 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+0	compile_commands.json	/^            "cc",$/;"	s	array:0.arguments
+0	compile_commands.json	/^            "cc",$/;"	s	array:1.arguments
+0	compile_commands.json	/^    {$/;"	o
+1	compile_commands.json	/^            "-c",$/;"	s	array:0.arguments
+1	compile_commands.json	/^            "-c",$/;"	s	array:1.arguments
+1	compile_commands.json	/^    {$/;"	o
+2	compile_commands.json	/^            "-I.",$/;"	s	array:0.arguments
+2	compile_commands.json	/^            "-I.",$/;"	s	array:1.arguments
+3	compile_commands.json	/^            "-I..\/",$/;"	s	array:0.arguments
+3	compile_commands.json	/^            "-I..\/",$/;"	s	array:1.arguments
+4	compile_commands.json	/^            "-g",$/;"	s	array:0.arguments
+4	compile_commands.json	/^            "-g",$/;"	s	array:1.arguments
+5	compile_commands.json	/^            "-o",$/;"	s	array:0.arguments
+5	compile_commands.json	/^            "-o",$/;"	s	array:1.arguments
+6	compile_commands.json	/^            "cfs.o",$/;"	s	array:1.arguments
+6	compile_commands.json	/^            "examples\/ex_1.o",$/;"	s	array:0.arguments
+7	compile_commands.json	/^            "cfs.c"$/;"	s	array:1.arguments
+7	compile_commands.json	/^            "examples\/ex_1.c"$/;"	s	array:0.arguments
+CC	Makefile	/^CC ?= cc$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -I. -I..\/ -g$/;"	m
+CFS_ERRNOHANDLER	cfs.h	/^    CFS_ERRNOHANDLER = -2,$/;"	e	enum:__anon0f3858370203
+CFS_ERRNOMEM	cfs.h	/^    CFS_ERRNOMEM = -1,$/;"	e	enum:__anon0f3858370203
+CFS_SEEK_CUR	cfs.h	/^    CFS_SEEK_CUR,$/;"	e	enum:__anon0f3858370103
+CFS_SEEK_END	cfs.h	/^    CFS_SEEK_END$/;"	e	enum:__anon0f3858370103
+CFS_SEEK_SET	cfs.h	/^    CFS_SEEK_SET,$/;"	e	enum:__anon0f3858370103
+DIR_SEP	cfs.c	/^#define DIR_SEP /;"	d	file:
+PLAT_DIR_SEP	cfs.c	/^#define PLAT_DIR_SEP /;"	d	file:
+__CFS_H__	cfs.h	/^#define __CFS_H__$/;"	d
+__anon0f3858370103	cfs.h	/^enum {$/;"	g
+__anon0f3858370203	cfs.h	/^enum {$/;"	g
+arguments	compile_commands.json	/^        "arguments": [$/;"	a	object:0
+arguments	compile_commands.json	/^        "arguments": [$/;"	a	object:1
+cfs	README.md	/^# cfs$/;"	c
+cfs_basename	cfs.c	/^static char* cfs_basename(char* str) {$/;"	f	typeref:typename:char *	file:
+cfs_dirname	cfs.c	/^static char* cfs_dirname(char* str) {$/;"	f	typeref:typename:char *	file:
+cfs_err	cfs.c	/^static int cfs_err;$/;"	v	typeref:typename:int	file:
+cfs_file	cfs.h	/^typedef struct cfs_file {$/;"	s
+cfs_file	cfs.h	/^} cfs_file;$/;"	t	typeref:struct:cfs_file
+cfs_file_handle	cfs.h	/^typedef struct cfs_file_handle cfs_file_handle;$/;"	t	typeref:struct:cfs_file_handle
+cfs_file_handle	cfs.h	/^typedef struct cfs_file_handle {$/;"	s
+cfs_file_handle	cfs.h	/^} cfs_file_handle;$/;"	t	typeref:struct:cfs_file_handle
+cfs_file_open	cfs.c	/^cfs_file_handle* cfs_file_open(const char* filename, const char* mode) {$/;"	f	typeref:typename:cfs_file_handle *
+cfs_file_read	cfs.c	/^long int cfs_file_read(cfs_file_handle* file, void* buffer, long int sz) {$/;"	f	typeref:typename:long int
+cfs_free	cfs.h	/^    #define cfs_free(/;"	d
+cfs_fs_handle	cfs.h	/^typedef struct cfs_fs_handle cfs_fs_handle;$/;"	t	typeref:struct:cfs_fs_handle
+cfs_fs_handle	cfs.h	/^typedef struct cfs_fs_handle {$/;"	s
+cfs_fs_handle	cfs.h	/^} cfs_fs_handle;$/;"	t	typeref:struct:cfs_fs_handle
+cfs_fs_handler	cfs.c	/^typedef struct cfs_fs_handler {$/;"	s	file:
+cfs_fs_handler	cfs.c	/^} cfs_fs_handler;$/;"	t	typeref:struct:cfs_fs_handler	file:
+cfs_fs_handler	cfs.h	/^typedef struct cfs_fs_handler cfs_fs_handler;$/;"	t	typeref:struct:cfs_fs_handler
+cfs_fs_impl	cfs.h	/^typedef struct cfs_fs_impl cfs_fs_impl;$/;"	t	typeref:struct:cfs_fs_impl
+cfs_fs_impl	cfs.h	/^typedef struct cfs_fs_impl {$/;"	s
+cfs_fs_impl	cfs.h	/^} cfs_fs_impl;$/;"	t	typeref:struct:cfs_fs_impl
+cfs_fs_impl_open	cfs.h	/^typedef cfs_file_handle* (*cfs_fs_impl_open)(cfs_fs_handle* fs, const char* filename, const char/;"	t	typeref:typename:cfs_file_handle * (*)(cfs_fs_handle * fs,const char * filename,const char * mode)
+cfs_fs_impl_read	cfs.h	/^typedef long int (*cfs_fs_impl_read)(cfs_fs_handle* fs, cfs_file_handle* handle, void* buffer, l/;"	t	typeref:typename:long int (*)(cfs_fs_handle * fs,cfs_file_handle * handle,void * buffer,long int sz)
+cfs_fs_impl_register	cfs.c	/^int cfs_fs_impl_register(cfs_fs_impl* impl, const char** extensions, void* userdata) {$/;"	f	typeref:typename:int
+cfs_fs_impl_seek	cfs.h	/^typedef long int (*cfs_fs_impl_seek)(cfs_fs_handle* fs, cfs_file_handle* handle, long int offset/;"	t	typeref:typename:long int (*)(cfs_fs_handle * fs,cfs_file_handle * handle,long int offset,int whence)
+cfs_fs_impl_write	cfs.h	/^typedef long int (*cfs_fs_impl_write)(cfs_fs_handle* fs, cfs_file_handle* handle, void* buffer, /;"	t	typeref:typename:long int (*)(cfs_fs_handle * fs,cfs_file_handle * handle,void * buffer,long int sz)
+cfs_fs_mount	cfs.c	/^int cfs_fs_mount(const char* src, const char* mount) {$/;"	f	typeref:typename:int
+cfs_getstrerr	cfs.c	/^const char* cfs_getstrerr(int errnum) {$/;"	f	typeref:typename:const char *
+cfs_malloc	cfs.h	/^    #define cfs_malloc(/;"	d
+cfs_mount_path	cfs.c	/^typedef struct cfs_mount_path {$/;"	s	file:
+cfs_mount_path	cfs.c	/^} cfs_mount_path;$/;"	t	typeref:struct:cfs_mount_path	file:
+cfs_realloc	cfs.h	/^    #define cfs_realloc(/;"	d
+cfs_strdup	cfs.c	/^static char* cfs_strdup(const char* str) {$/;"	f	typeref:typename:char *	file:
+clean	Makefile	/^clean:$/;"	t
+directory	compile_commands.json	/^        "directory": "\/home\/pooh\/cfs",$/;"	s	object:0
+directory	compile_commands.json	/^        "directory": "\/home\/pooh\/cfs",$/;"	s	object:1
+err	cfs.c	/^static const char* err = "";$/;"	v	typeref:typename:const char *	file:
+examples/ex_1	Makefile	/^examples\/ex_1: examples\/ex_1.o cfs.o$/;"	t
+exts	cfs.c	/^    const char** exts;$/;"	m	struct:cfs_fs_handler	typeref:typename:const char **	file:
+exts	examples/ex_1.c	/^static const char* exts[] = {$/;"	v	typeref:typename:const char * []	file:
+file	compile_commands.json	/^        "file": "cfs.c"$/;"	s	object:1
+file	compile_commands.json	/^        "file": "examples\/ex_1.c"$/;"	s	object:0
+find_handler	cfs.c	/^static cfs_fs_handler* find_handler(const char* filename) {$/;"	f	typeref:typename:cfs_fs_handler *	file:
+fs_impl	cfs.h	/^    cfs_fs_handle* fs_impl;$/;"	m	struct:cfs_file_handle	typeref:typename:cfs_fs_handle *
+handle	cfs.c	/^    cfs_fs_handle* handle;$/;"	m	struct:cfs_mount_path	typeref:typename:cfs_fs_handle *	file:
+handle	cfs.h	/^    void* handle;$/;"	m	struct:cfs_file_handle	typeref:typename:void *
+handler	cfs.h	/^    cfs_fs_handler* handler;$/;"	m	struct:cfs_fs_handle	typeref:typename:cfs_fs_handler *
+handlers	cfs.c	/^static cfs_fs_handler* handlers;$/;"	v	typeref:typename:cfs_fs_handler *	file:
+impl	cfs.c	/^    cfs_fs_impl* impl;$/;"	m	struct:cfs_fs_handler	typeref:typename:cfs_fs_impl *	file:
+main	examples/ex_1.c	/^int main(int argc, char** argv) {$/;"	f	typeref:typename:int
+mount	cfs.h	/^    const char* mount;$/;"	m	struct:cfs_fs_handle	typeref:typename:const char *
+mount_path	cfs.c	/^static cfs_mount_path* mount_path;$/;"	v	typeref:typename:cfs_mount_path *	file:
+next	cfs.c	/^    struct cfs_fs_handler* next;$/;"	m	struct:cfs_fs_handler	typeref:struct:cfs_fs_handler *	file:
+next	cfs.c	/^    struct cfs_mount_path* next;$/;"	m	struct:cfs_mount_path	typeref:struct:cfs_mount_path *	file:
+open_fn	cfs.h	/^    cfs_fs_impl_open open_fn;$/;"	m	struct:cfs_fs_impl	typeref:typename:cfs_fs_impl_open
+read_fn	cfs.h	/^    cfs_fs_impl_read read_fn;$/;"	m	struct:cfs_fs_impl	typeref:typename:cfs_fs_impl_read
+seek_fn	cfs.h	/^    cfs_fs_impl_seek seek_fn;$/;"	m	struct:cfs_fs_impl	typeref:typename:cfs_fs_impl_seek
+src	cfs.h	/^    const char* src;$/;"	m	struct:cfs_fs_handle	typeref:typename:const char *
+stdio_impl	examples/ex_1.c	/^static cfs_fs_impl stdio_impl = {$/;"	v	typeref:typename:cfs_fs_impl	file:
+stdio_open	examples/ex_1.c	/^cfs_file_handle* stdio_open(cfs_fs_handle* handle, const char* filename, const char* mode) {$/;"	f	typeref:typename:cfs_file_handle *
+stdio_read	examples/ex_1.c	/^long int stdio_read(cfs_fs_handle* handle, cfs_file_handle* file, void* buffer, long int sz) {$/;"	f	typeref:typename:long int
+stdio_seek	examples/ex_1.c	/^long int stdio_seek(cfs_fs_handle* handle, cfs_file_handle* file, long int offset, int whence) {$/;"	f	typeref:typename:long int
+stdio_write	examples/ex_1.c	/^long int stdio_write(cfs_fs_handle* handle, cfs_file_handle* file, void* buffer, long int sz) {$/;"	f	typeref:typename:long int
+userdata	cfs.c	/^    void* userdata;$/;"	m	struct:cfs_fs_handler	typeref:typename:void *	file:
+userdata	cfs.h	/^    void* userdata;$/;"	m	struct:cfs_fs_handle	typeref:typename:void *
+write_fn	cfs.h	/^    cfs_fs_impl_write write_fn;$/;"	m	struct:cfs_fs_impl	typeref:typename:cfs_fs_impl_write
