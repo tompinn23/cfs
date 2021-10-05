@@ -27,6 +27,12 @@ CC	Makefile	/^CC ?= cc$/;"	m
 CFLAGS	Makefile	/^CFLAGS = -I. -I..\/ -g$/;"	m
 CFS_ERRNOHANDLER	cfs.h	/^    CFS_ERRNOHANDLER = -2,$/;"	e	enum:__anon0f3858370203
 CFS_ERRNOMEM	cfs.h	/^    CFS_ERRNOMEM = -1,$/;"	e	enum:__anon0f3858370203
+CFS_ERRPATH	cfs.h	/^	CFS_ERRPATH = -3,$/;"	e	enum:__anon0f3858370203
+CFS_PATH_BACK	cfs.h	/^	CFS_PATH_BACK$/;"	e	enum:cfs_path_segment_type
+CFS_PATH_CURRENT	cfs.h	/^	CFS_PATH_CURRENT,$/;"	e	enum:cfs_path_segment_type
+CFS_PATH_NORMAL	cfs.h	/^	CFS_PATH_NORMAL,$/;"	e	enum:cfs_path_segment_type
+CFS_PATH_UNIX	cfs.h	/^	CFS_PATH_UNIX$/;"	e	enum:cfs_path_style
+CFS_PATH_WINDOWS	cfs.h	/^	CFS_PATH_WINDOWS,$/;"	e	enum:cfs_path_style
 CFS_SEEK_CUR	cfs.h	/^    CFS_SEEK_CUR,$/;"	e	enum:__anon0f3858370103
 CFS_SEEK_END	cfs.h	/^    CFS_SEEK_END$/;"	e	enum:__anon0f3858370103
 CFS_SEEK_SET	cfs.h	/^    CFS_SEEK_SET,$/;"	e	enum:__anon0f3858370103
@@ -37,9 +43,8 @@ __anon0f3858370103	cfs.h	/^enum {$/;"	g
 __anon0f3858370203	cfs.h	/^enum {$/;"	g
 arguments	compile_commands.json	/^        "arguments": [$/;"	a	object:0
 arguments	compile_commands.json	/^        "arguments": [$/;"	a	object:1
+begin	cfs.h	/^	const char* begin;$/;"	m	struct:cfs_path	typeref:typename:const char *
 cfs	README.md	/^# cfs$/;"	c
-cfs_basename	cfs.c	/^static char* cfs_basename(char* str) {$/;"	f	typeref:typename:char *	file:
-cfs_dirname	cfs.c	/^static char* cfs_dirname(char* str) {$/;"	f	typeref:typename:char *	file:
 cfs_err	cfs.c	/^static int cfs_err;$/;"	v	typeref:typename:int	file:
 cfs_file	cfs.h	/^typedef struct cfs_file {$/;"	s
 cfs_file	cfs.h	/^} cfs_file;$/;"	t	typeref:struct:cfs_file
@@ -68,11 +73,70 @@ cfs_getstrerr	cfs.c	/^const char* cfs_getstrerr(int errnum) {$/;"	f	typeref:type
 cfs_malloc	cfs.h	/^    #define cfs_malloc(/;"	d
 cfs_mount_path	cfs.c	/^typedef struct cfs_mount_path {$/;"	s	file:
 cfs_mount_path	cfs.c	/^} cfs_mount_path;$/;"	t	typeref:struct:cfs_mount_path	file:
+cfs_path	cfs.h	/^typedef struct cfs_path {$/;"	s
+cfs_path	cfs.h	/^} cfs_path;$/;"	t	typeref:struct:cfs_path
+cfs_path_basename	cfs.c	/^void cfs_path_basename(const char* path, const char** basename, size_t* length) {$/;"	f	typeref:typename:void
+cfs_path_basename_impl	cfs.c	/^static void cfs_path_basename_impl(cfs_path_style style, const char* path, const char** basename/;"	f	typeref:typename:void	file:
+cfs_path_dirname	cfs.c	/^void cfs_path_dirname(const char *path, size_t *length) {$/;"	f	typeref:typename:void
+cfs_path_dirname_impl	cfs.c	/^static void cfs_path_dirname_impl(cfs_path_style style, const char* path, size_t* length) {$/;"	f	typeref:typename:void	file:
+cfs_path_extension	cfs.c	/^bool cfs_path_extension(const char *path, const char **extension, size_t *length) {$/;"	f	typeref:typename:bool
+cfs_path_extension_impl	cfs.c	/^static bool cfs_path_extension_impl(cfs_path_style style, const char* path, const char** extensi/;"	f	typeref:typename:bool	file:
+cfs_path_find_next_stop	cfs.c	/^static const char* cfs_path_find_next_stop(cfs_path_style style, const char* c) {$/;"	f	typeref:typename:const char *	file:
+cfs_path_find_previous_stop	cfs.c	/^static const char* cfs_path_find_previous_stop(cfs_path_style style, const char* begin, const ch/;"	f	typeref:typename:const char *	file:
+cfs_path_get_absolute_impl	cfs.c	/^static size_t cfs_path_get_absolute_impl(cfs_path_style style, const char* base, const char* pat/;"	f	typeref:typename:size_t	file:
+cfs_path_get_first_segment	cfs.c	/^bool cfs_path_get_first_segment(const char *path, cfs_path *segment) {$/;"	f	typeref:typename:bool
+cfs_path_get_first_segment_impl	cfs.c	/^static bool cfs_path_get_first_segment_impl(cfs_path_style style, const char* path, cfs_path* se/;"	f	typeref:typename:bool	file:
+cfs_path_get_first_segment_joined	cfs.c	/^static bool cfs_path_get_first_segment_joined(cfs_path_style style, const char** paths, cfs_segm/;"	f	typeref:typename:bool	file:
+cfs_path_get_first_segment_without_root	cfs.c	/^static bool cfs_path_get_first_segment_without_root(cfs_path_style style, const char* path, cons/;"	f	typeref:typename:bool	file:
+cfs_path_get_intersection	cfs.c	/^size_t cfs_path_get_intersection(const char *path_base, const char *path_other) {$/;"	f	typeref:typename:size_t
+cfs_path_get_intersection_impl	cfs.c	/^static size_t cfs_path_get_intersection_impl(cfs_path_style style, const char* path_base, const /;"	f	typeref:typename:size_t	file:
+cfs_path_get_last_segment	cfs.c	/^bool cfs_path_get_last_segment(const char *path, cfs_path *segment) {$/;"	f	typeref:typename:bool
+cfs_path_get_last_segment_impl	cfs.c	/^static bool cfs_path_get_last_segment_impl(cfs_path_style style, const char* path, cfs_path* seg/;"	f	typeref:typename:bool	file:
+cfs_path_get_last_segment_without_root	cfs.c	/^static bool cfs_path_get_last_segment_without_root(cfs_path_style style, const char* path, cfs_p/;"	f	typeref:typename:bool	file:
+cfs_path_get_next_segment	cfs.c	/^bool cfs_path_get_next_segment(cfs_path *segment) {$/;"	f	typeref:typename:bool
+cfs_path_get_next_segment_impl	cfs.c	/^static bool cfs_path_get_next_segment_impl(cfs_path_style style, cfs_path* segment) {$/;"	f	typeref:typename:bool	file:
+cfs_path_get_next_segment_joined	cfs.c	/^static bool cfs_path_get_next_segment_joined(cfs_path_style style, cfs_segment_joined *sj) {$/;"	f	typeref:typename:bool	file:
+cfs_path_get_previous_segment_impl	cfs.c	/^static bool cfs_path_get_previous_segment_impl(cfs_path_style style, cfs_path* segment) {$/;"	f	typeref:typename:bool	file:
+cfs_path_get_previous_segment_joined	cfs.c	/^static bool cfs_path_get_previous_segment_joined(cfs_path_style style, cfs_segment_joined* sj) {$/;"	f	typeref:typename:bool	file:
+cfs_path_get_root	cfs.c	/^void cfs_path_get_root(cfs_path_style style, const char *path, size_t *length) {$/;"	f	typeref:typename:void
+cfs_path_get_root_unix	cfs.c	/^static void cfs_path_get_root_unix(const char* path, size_t* length) {$/;"	f	typeref:typename:void	file:
+cfs_path_get_root_windows	cfs.c	/^static void cfs_path_get_root_windows(const char* path, size_t* length) {$/;"	f	typeref:typename:void	file:
+cfs_path_get_segment_type	cfs.c	/^static enum cfs_path_segment_type cfs_path_get_segment_type(const cfs_path* segment) {$/;"	f	typeref:enum:cfs_path_segment_type	file:
+cfs_path_has_extension	cfs.c	/^bool cfs_path_has_extension(const char *path) {$/;"	f	typeref:typename:bool
+cfs_path_is_root_absolute	cfs.c	/^static bool cfs_path_is_root_absolute(cfs_path_style style, const char* path, size_t length) {$/;"	f	typeref:typename:bool	file:
+cfs_path_is_sep	cfs.c	/^bool cfs_path_is_sep(cfs_path_style style, const char* str) {$/;"	f	typeref:typename:bool
+cfs_path_join_and_normalize_multiple	cfs.c	/^static size_t cfs_path_join_and_normalize_multiple(cfs_path_style style, const char** paths, cha/;"	f	typeref:typename:size_t	file:
+cfs_path_normalize	cfs.c	/^size_t cfs_path_normalize(const char *path, char *buffer, size_t buffer_size) {$/;"	f	typeref:typename:size_t
+cfs_path_normalize_impl	cfs.c	/^static size_t cfs_path_normalize_impl(cfs_path_style style, const char* path, char* buffer, size/;"	f	typeref:typename:size_t	file:
+cfs_path_output_current	cfs.c	/^static size_t cfs_path_output_current(char* buffer, size_t buffer_size, size_t position) {$/;"	f	typeref:typename:size_t	file:
+cfs_path_output_separator	cfs.c	/^static size_t cfs_path_output_separator(cfs_path_style style, char* buffer, size_t buffer_size, /;"	f	typeref:typename:size_t	file:
+cfs_path_output_sized	cfs.c	/^static size_t cfs_path_output_sized(char* buffer, size_t buffer_size, size_t position, const cha/;"	f	typeref:typename:size_t	file:
+cfs_path_segment_back_will_be_removed	cfs.c	/^static bool cfs_path_segment_back_will_be_removed(cfs_path_style style, cfs_segment_joined* sj) /;"	f	typeref:typename:bool	file:
+cfs_path_segment_joined_skip_invisible	cfs.c	/^static bool cfs_path_segment_joined_skip_invisible(cfs_path_style style, cfs_segment_joined* sj,/;"	f	typeref:typename:bool	file:
+cfs_path_segment_normal_will_be_removed	cfs.c	/^static bool cfs_path_segment_normal_will_be_removed(cfs_path_style style, cfs_segment_joined* sj/;"	f	typeref:typename:bool	file:
+cfs_path_segment_type	cfs.h	/^enum cfs_path_segment_type {$/;"	g
+cfs_path_segment_will_be_removed	cfs.c	/^static bool cfs_path_segment_will_be_removed(cfs_path_style style, const cfs_segment_joined* sj,/;"	f	typeref:typename:bool	file:
+cfs_path_string_equal	cfs.c	/^static bool cfs_path_string_equal(cfs_path_style style, const char* first, const char* second, s/;"	f	typeref:typename:bool	file:
+cfs_path_style	cfs.h	/^typedef enum cfs_path_style {$/;"	g
+cfs_path_style	cfs.h	/^} cfs_path_style;$/;"	t	typeref:enum:cfs_path_style
+cfs_path_terminate_output	cfs.c	/^static void cfs_path_terminate_output(char* buffer, size_t buffer_size, size_t position) {$/;"	f	typeref:typename:void	file:
+cfs_plat_path_basename	cfs.c	/^void cfs_plat_path_basename(const char* path, const char** basename, size_t* length) {$/;"	f	typeref:typename:void
+cfs_plat_path_dirname	cfs.c	/^void cfs_plat_path_dirname(const char *path, size_t *length) {$/;"	f	typeref:typename:void
+cfs_plat_path_extension	cfs.c	/^bool cfs_plat_path_extension(const char *path, const char **extension, size_t *length) {$/;"	f	typeref:typename:bool
+cfs_plat_path_get_first_segment	cfs.c	/^bool cfs_plat_path_get_first_segment(const char* path, cfs_path* segment) {$/;"	f	typeref:typename:bool
+cfs_plat_path_get_intersection	cfs.c	/^size_t cfs_plat_path_get_intersection(const char *path_base, const char *path_other) {$/;"	f	typeref:typename:size_t
+cfs_plat_path_get_last_segment	cfs.c	/^bool cfs_plat_path_get_last_segment(const char* path, cfs_path* segment) {$/;"	f	typeref:typename:bool
+cfs_plat_path_get_next_segment	cfs.c	/^bool cfs_plat_path_get_next_segment(cfs_path *segment) {$/;"	f	typeref:typename:bool
+cfs_plat_path_has_extension	cfs.c	/^bool cfs_plat_path_has_extension(const char *path) {$/;"	f	typeref:typename:bool
+cfs_plat_path_normalize	cfs.c	/^size_t cfs_plat_path_normalize(const char *path, char *buffer, size_t buffer_size) {$/;"	f	typeref:typename:size_t
 cfs_realloc	cfs.h	/^    #define cfs_realloc(/;"	d
+cfs_segment_joined	cfs.c	/^typedef struct cfs_segment_joined {$/;"	s	file:
+cfs_segment_joined	cfs.c	/^} cfs_segment_joined;$/;"	t	typeref:struct:cfs_segment_joined	file:
 cfs_strdup	cfs.c	/^static char* cfs_strdup(const char* str) {$/;"	f	typeref:typename:char *	file:
 clean	Makefile	/^clean:$/;"	t
 directory	compile_commands.json	/^        "directory": "\/home\/pooh\/cfs",$/;"	s	object:0
 directory	compile_commands.json	/^        "directory": "\/home\/pooh\/cfs",$/;"	s	object:1
+end	cfs.h	/^	const char* end;$/;"	m	struct:cfs_path	typeref:typename:const char *
 err	cfs.c	/^static const char* err = "";$/;"	v	typeref:typename:const char *	file:
 examples/ex_1	Makefile	/^examples\/ex_1: examples\/ex_1.o cfs.o$/;"	t
 exts	cfs.c	/^    const char** exts;$/;"	m	struct:cfs_fs_handler	typeref:typename:const char **	file:
@@ -92,8 +156,17 @@ mount_path	cfs.c	/^static cfs_mount_path* mount_path;$/;"	v	typeref:typename:cfs
 next	cfs.c	/^    struct cfs_fs_handler* next;$/;"	m	struct:cfs_fs_handler	typeref:struct:cfs_fs_handler *	file:
 next	cfs.c	/^    struct cfs_mount_path* next;$/;"	m	struct:cfs_mount_path	typeref:struct:cfs_mount_path *	file:
 open_fn	cfs.h	/^    cfs_fs_impl_open open_fn;$/;"	m	struct:cfs_fs_impl	typeref:typename:cfs_fs_impl_open
+path	cfs.h	/^	const char* path;$/;"	m	struct:cfs_path	typeref:typename:const char *
+path_index	cfs.c	/^	size_t path_index;$/;"	m	struct:cfs_segment_joined	typeref:typename:size_t	file:
+path_style	cfs.c	/^static enum cfs_path_style path_style = CFS_PATH_UNIX;$/;"	v	typeref:enum:cfs_path_style	file:
+path_style	cfs.c	/^static enum cfs_path_style path_style = CFS_PATH_WINDOWS;$/;"	v	typeref:enum:cfs_path_style	file:
+paths	cfs.c	/^	const char** paths;$/;"	m	struct:cfs_segment_joined	typeref:typename:const char **	file:
 read_fn	cfs.h	/^    cfs_fs_impl_read read_fn;$/;"	m	struct:cfs_fs_impl	typeref:typename:cfs_fs_impl_read
 seek_fn	cfs.h	/^    cfs_fs_impl_seek seek_fn;$/;"	m	struct:cfs_fs_impl	typeref:typename:cfs_fs_impl_seek
+segment	cfs.c	/^	cfs_path segment;$/;"	m	struct:cfs_segment_joined	typeref:typename:cfs_path	file:
+segments	cfs.h	/^	const char* segments;$/;"	m	struct:cfs_path	typeref:typename:const char *
+seperators	cfs.c	/^static const char* seperators[] = {$/;"	v	typeref:typename:const char * []	file:
+size	cfs.h	/^	long int size;$/;"	m	struct:cfs_path	typeref:typename:long int
 src	cfs.h	/^    const char* src;$/;"	m	struct:cfs_fs_handle	typeref:typename:const char *
 stdio_impl	examples/ex_1.c	/^static cfs_fs_impl stdio_impl = {$/;"	v	typeref:typename:cfs_fs_impl	file:
 stdio_open	examples/ex_1.c	/^cfs_file_handle* stdio_open(cfs_fs_handle* handle, const char* filename, const char* mode) {$/;"	f	typeref:typename:cfs_file_handle *

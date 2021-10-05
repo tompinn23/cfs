@@ -2,6 +2,10 @@
 #define __CFS_H__
 
 #include <stdarg.h>
+#include <stddef.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
 
 #ifndef cfs_malloc
     #define cfs_malloc(size) malloc(size)
@@ -31,7 +35,7 @@ enum {
 enum {
     CFS_ERRNOMEM = -1,
     CFS_ERRNOHANDLER = -2,
-
+	CFS_ERRPATH = -3,
 };
 
 /*
@@ -88,6 +92,58 @@ int cfs_file_vfprintf(cfs_file_handle* file, const char* format, va_list arg);
 
 int cfs_file_fscanf(cfs_file_handle* file, const char* format, ...);
 
+/*
+ * Path handling.
+ */
 
+typedef struct cfs_path {
+	const char* path;
+	const char* segments;
+	const char* begin;
+	const char* end;
+	long int size;
+} cfs_path;
+
+typedef enum cfs_path_style {
+	CFS_PATH_WINDOWS,
+	CFS_PATH_UNIX
+} cfs_path_style;
+
+enum cfs_path_segment_type {
+	CFS_PATH_NORMAL,
+	CFS_PATH_CURRENT,
+	CFS_PATH_BACK
+};
+
+void cfs_path_basename(const char* path, const char** basename, size_t* length);
+void cfs_path_dirname(const char* path, size_t* length);
+void cfs_plat_path_basename(const char* path, const char** basename, size_t* length);
+void cfs_plat_path_dirname(const char* path, size_t* length);
+
+bool cfs_path_extension(const char* path, const char** extension, size_t* length);
+bool cfs_plat_path_extension(const char* path, const char** extension, size_t* length);
+
+bool cfs_path_has_extension(const char* path);
+bool cfs_plat_path_has_extension(const char* path);
+
+size_t cfs_path_normalize(const char* path, char* buffer, size_t buffer_size);
+size_t cfs_plat_path_normalize(const char* path, char* buffer, size_t buffer_size);
+
+size_t cfs_path_get_intersection(const char* path_base, const char* path_other);
+size_t cfs_plat_path_get_intersection(const char* path_base, const char* path_other);
+
+bool cfs_path_is_sep(cfs_path_style style, const char* str);
+
+void cfs_path_get_root(cfs_path_style style, const char* path, size_t* length);
+
+bool cfs_path_get_first_segment(const char* path, cfs_path* segment);
+bool cfs_path_get_last_segment(const char* path, cfs_path* segment); 
+bool cfs_path_get_next_segment(cfs_path* segment);
+bool cfs_path_get_previous_segment(cfs_path* segment);
+
+bool cfs_plat_path_get_first_segment(const char* path, cfs_path* segment);
+bool cfs_plat_path_get_last_segment(const char* path, cfs_path* segment);
+bool cfs_plat_path_get_next_segment(cfs_path* segment);
+bool cfs_plat_path_get_previous_segment(cfs_path* segment);
 
 #endif
